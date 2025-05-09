@@ -1,11 +1,9 @@
 -- lua/aegis/state.lua --
 
 local zindex = 100
-if pcall(require, 'which-key') then
-  zindex = 1001
-end
+if pcall(require, 'which-key') then zindex = 1001 end
 
-local M = {
+return {
   config = {
     excluded_modes = {},
     keyformat = {
@@ -42,5 +40,3 @@ local M = {
   keys = {},
   w = 1,
 }
-
-return M
