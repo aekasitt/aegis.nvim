@@ -27,39 +27,15 @@ local format_mapping = function(str)
   return str1 .. (str2 and (' ' .. str2) or '')
 end
 
-local function get_which_key_win_height()
-  for _, win in ipairs(vim.api.nvim_list_wins()) do
-    local buf = vim.api.nvim_win_get_buf(win)
-    local ft = vim.api.nvim_buf_get_option(buf, "filetype")
-    if ft == "wk" then  -- which-key sets filetype to 'wk'
-      return vim.api.nvim_win_get_height(win)
-    end
-  end
-  return 4  -- which-key window not found (not open)
-end
-
-local function get_wk_windows()
-  local wk_wins = {}
-  for _, win in ipairs(vim.api.nvim_list_wins()) do
-    local buf = vim.api.nvim_win_get_buf(win)
-    local ft = vim.api.nvim_buf_get_option(buf, "filetype")
-    if ft == "wk" then
-      table.insert(wk_wins, win)
-    end
-  end
-  return wk_wins
-end
-
 M.gen_winconfig = function()
   local lines = vim.o.lines
   local cols = vim.o.columns
-  local keymap_hint_height = get_which_key_win_height()  -- height of the key binding hint section
   state.config.winopts.width = state.w
 
   local pos = state.config.position
 
   if string.find(pos, 'bottom') then
-    state.config.winopts.row = lines - keymap_hint_height - 1  -- -1 for zero-based indexing or border
+    state.config.winopts.row = lines - 4 - 1  -- -1 for zero-based indexing or border
   end
 
   if pos == 'top-right' then
