@@ -7,20 +7,20 @@ end
 
 local M = {
   config = {
-    excluded_modes = {}, -- example: {'i'}
+    excluded_modes = {},
     keyformat = {
       ['<BS>'] = '󰁮 ',
+      ['<C>'] = 'Ctrl',
       ['<CR>'] = '󰘌',
-      ['<Space>'] = '󱁐',
-      ['<Up>'] = '󰁝',
+      ['<D>'] = '⌘',
       ['<Down>'] = '󰁅',
       ['<Left>'] = '󰁍',
-      ['<Right>'] = '󰁔',
-      ['<PageUp>'] = 'Page 󰁝',
-      ['<PageDown>'] = 'Page 󰁅',
       ['<M>'] = 'Alt',
-      ['<C>'] = 'Ctrl',
-      ['<D>'] = '⌘',
+      ['<PageDown>'] = 'Page 󰁅',
+      ['<PageUp>'] = 'Page 󰁝',
+      ['<Right>'] = '󰁔',
+      ['<Space>'] = '󱁐',
+      ['<Up>'] = '󰁝',
     },
     maxkeys = 3,
     position = 'bottom-right',
