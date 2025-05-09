@@ -6,8 +6,6 @@
 [![Last commit](https://img.shields.io/github/last-commit/aekasitt/aegis.nvim/master)](https://github.com/aekasitt/aegis.nvim)
 ![Aegis Banner](static/aegis-banner.svg)
 
-## Install
-
 ### Lazy
 
 ```lua
@@ -28,10 +26,15 @@
   opts = {
     timeout = 1,
     maxkeys = 5,
-    -- more opts
   }
 }
 ```
+
+### Acknowledgements
+
+1. [นฤชา - Narucha](https://www.f0nt.com/release/sov-narucha) typeface by [uvSOV - Worawut Thanawatanawanich](https://fb.com/worawut.thanawatanawanich)
+1. [nvzone/showkeys](https://github.com/nvzone/showkeys) plugin written by the amazing [@nvzone](https://github.com/nvzone)
+  as original fork and inspiration
 
 ## License
 
