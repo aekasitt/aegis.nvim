@@ -31,7 +31,7 @@ local function get_which_key_win_height()
   for _, win in ipairs(vim.api.nvim_list_wins()) do
     local buf = vim.api.nvim_win_get_buf(win)
     local ft = vim.api.nvim_buf_get_option(buf, "filetype")
-    if ft == "which_key" then  -- which-key sets filetype to 'which_key'
+    if ft == "wk" then  -- which-key sets filetype to 'wk'
       return vim.api.nvim_win_get_height(win)
     end
   end
