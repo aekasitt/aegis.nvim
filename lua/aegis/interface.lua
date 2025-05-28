@@ -1,4 +1,4 @@
--- lua/aegis/ui.lua --
+-- lua/aegis/interface.lua --
 
 local state = require 'aegis.state'
 
