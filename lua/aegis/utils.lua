@@ -84,9 +84,11 @@ end
 M.clear_and_close = function()
   state.keys = {}
   M.redraw()
-  local tmp = state.window
-  state.window = nil
-  vim.api.nvim_win_close(tmp, true)
+  if state.window then
+    local tmp = state.window
+    state.window = nil
+    vim.api.nvim_win_close(tmp, true)
+  end
 end
 
 M.parse_key = function(char)
