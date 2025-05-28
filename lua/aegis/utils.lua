@@ -30,7 +30,7 @@ end
 M.gen_winconfig = function()
   local lines = vim.o.lines
   local cols = vim.o.columns
-  state.config.winopts.width = state.w
+  state.config.winopts.width = state.width
 
   local pos = state.config.position
 
@@ -39,20 +39,20 @@ M.gen_winconfig = function()
   end
 
   if pos == 'top-right' then
-    state.config.winopts.col = cols - state.w - 3
+    state.config.winopts.col = cols - state.width - 3
   elseif pos == 'top-center' or pos == 'bottom-center' then
-    state.config.winopts.col = math.floor(cols / 2) - math.floor(state.w / 2)
+    state.config.winopts.col = math.floor(cols / 2) - math.floor(state.width / 2)
   elseif pos == 'bottom-right' then
-    state.config.winopts.col = cols - state.w - 3
+    state.config.winopts.col = cols - state.width - 3
   end
 end
 
 local update_win_w = function()
   local keyslen = #state.keys
-  state.w = keyslen + 1 + (2 * keyslen) -- 2 spaces around each key
+  state.width = keyslen + 1 + (2 * keyslen) -- 2 spaces around each key
 
   for _, v in ipairs(state.keys) do
-    state.w = state.w + vim.fn.strwidth(v.txt)
+    state.width = state.width + vim.fn.strwidth(v.txt)
   end
 
   M.gen_winconfig()

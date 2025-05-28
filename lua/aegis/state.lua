@@ -38,5 +38,5 @@ return {
   },
   extmark_id = nil,
   keys = {},
-  w = 1,
+  width = 1,
 }
