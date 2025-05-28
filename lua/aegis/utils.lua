@@ -56,7 +56,9 @@ local update_window_width = function()
   end
 
   M.gen_winconfig()
-  vim.api.nvim_win_set_config(state.win, state.config.winopts)
+  if state.window then
+    vim.api.nvim_win_set_config(state.window, state.config.winopts)
+  end
 end
 
 M.draw = function()
@@ -82,8 +84,8 @@ end
 M.clear_and_close = function()
   state.keys = {}
   M.redraw()
-  local tmp = state.win
-  state.win = nil
+  local tmp = state.window
+  state.window = nil
   vim.api.nvim_win_close(tmp, true)
 end
 
@@ -91,7 +93,7 @@ M.parse_key = function(char)
   local opts = state.config
 
   if vim.tbl_contains(opts.excluded_modes, vim.api.nvim_get_mode().mode) then
-    if state.win then
+    if state.window then
       M.clear_and_close()
     end
     return
