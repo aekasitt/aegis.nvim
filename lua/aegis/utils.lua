@@ -47,7 +47,7 @@ M.gen_winconfig = function()
   end
 end
 
-local update_win_w = function()
+local update_window_width = function()
   local keyslen = #state.keys
   state.width = keyslen + 1 + (2 * keyslen) -- 2 spaces around each key
 
@@ -75,7 +75,7 @@ M.draw = function()
 end
 
 M.redraw = function()
-  update_win_w()
+  update_window_width()
   M.draw()
 end
 
